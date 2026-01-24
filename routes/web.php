@@ -10,11 +10,17 @@ use App\Http\Controllers\User\HomeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\EventController as AdminEventController;
 use App\Http\Controllers\User\EventController as UserEventController;
+use App\Http\Controllers\User\OrderController;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
 // Events
 Route::get('/events/{event}', [UserEventController::class, 'show'])->name('events.show');
+
+// Orders
+Route::get('/orders', [OrderController::class, 'index'])->name('orders.index');
+Route::get('/orders/{order}', [OrderController::class, 'show'])->name('orders.show');
+Route::post('/orders', [OrderController::class, 'store'])->name('orders.store');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

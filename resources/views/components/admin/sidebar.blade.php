@@ -40,6 +40,15 @@
                     <span class="is-drawer-close:hidden">Manajemen Event</span>
                 </a>
             </li>
+
+            <!-- Location item -->
+            <li class="{{ request()->routeIs('admin.locations.*') ? 'bg-gray-200 rounded-lg' : '' }}">
+                <a href="{{ route('admin.locations.index') }}" class="is-drawer-close:tooltip is-drawer-close:tooltip-right" data-tip="Event">
+                    <!-- icon Event -->
+                    <img src="/assets/icons/location.png" alt="location icon" width="24">
+                    <span class="is-drawer-close:hidden">Manajemen Lokasi</span>
+                </a>
+            </li>
             
             <!-- History item -->
             <li class="{{ request()->routeIs('admin.histories.*') ? 'bg-gray-200 rounded-lg' : '' }}">

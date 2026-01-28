@@ -9,6 +9,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\User\HomeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\EventController as AdminEventController;
+use App\Http\Controllers\Admin\LocationController;
 use App\Http\Controllers\User\EventController as UserEventController;
 use App\Http\Controllers\User\OrderController;
 
@@ -31,12 +32,15 @@ Route::middleware('auth')->group(function () {
         Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
         // Category Management
         Route::resource('categories', CategoryController::class);
-
+        
         // Event Management
         Route::resource('events', EventController::class);
-
+        
         // Tiket Management 
         Route::resource('tickets', TiketController::class);
+
+        // Category Management
+        Route::resource('locations', LocationController::class);
 
         // Histories
         Route::get('/histories', [HistoriesController::class, 'index'])->name('histories.index');
